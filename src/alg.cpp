@@ -10,7 +10,7 @@ int getPrior(char c) {
     if ((c == '*') || (c == '/')) return 3;
 }
 
-bool isDigit(char c) {
+const bool isDigit(char c) {
     if (c == '-') return 1;
     if (c == '+') return 1;
     if (c == '/') return 1;
@@ -18,24 +18,27 @@ bool isDigit(char c) {
     return 0;
 }
 
-std::string infx2pstfx(std::string inf) {
+std::string strx2pstfx(std::string str) {
     TStack<char, 100> stack1;
     std::string output = "";
-    for (int i = 0; i < inf.length(); i++) {
-        if (inf[i] >= '0' && inf[i] <= '9') {
-            output += inf[i];
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] >= '0' && str[i] <= '9') {
+            output += str[i];
             output += " ";
-        } else if (inf[i] == '(') {
-            stack1.push(inf[i]);
-    } else if (isDigit(inf[i])) {
+        }
+        else if (str[i] == '(') {
+            stack1.push(str[i]);
+        }
+        else if (isDigit(str[i])) {
             while (stack1.isEmpty() == 0 &&
-                   getPrior(inf[i]) <= getPrior(stack1.getTop())) {
+                getPrior(str[i]) <= getPrior(stack1.getTop())) {
                 output += stack1.getTop();
                 output += " ";
                 stack1.pop();
             }
-            stack1.push(inf[i]);
-        } else if (inf[i] == ')') {
+            stack1.push(str[i]);
+        }
+        else if (str[i] == ')') {
             while (stack1.isEmpty() == 0 && stack1.getTop() != '(') {
                 output += stack1.getTop();
                 output += " ";
