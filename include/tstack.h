@@ -19,7 +19,7 @@ class TStack {
     }
     const T& pop() {
         if (isEmpty())
-            throw std::string("empty");
+            throw std::string("Empty!");
         else
             return arr[top--];
     }
