@@ -10,6 +10,14 @@ int getPrior(char c) {
     if ((c == '*') || (c == '/')) return 3;
 }
 
+bool isDigit(char c) {
+    if (c == '-') return 1;
+    if (c == '+') return 1;
+    if (c == '/') return 1;
+    if (c == '*') return 1;
+    return 0;
+}
+
 std::string infx2pstfx(std::string inf) {
     TStack<char, 100> stack1;
     std::string output = "";
@@ -19,7 +27,7 @@ std::string infx2pstfx(std::string inf) {
             output += " ";
         } else if (inf[i] == '(')
             stack1.push(inf[i]);
-        else if (inf[i] == '-' || inf[i] == '+' || inf[i] == '/' || inf[i] == '*') {
+        else if (isDigit(inf[i])) {
             while (stack1.isEmpty() == 0 &&
                    getPrior(inf[i]) <= getPrior(stack1.getTop())) {
                 output += stack1.getTop();
