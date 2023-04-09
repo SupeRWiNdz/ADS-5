@@ -25,11 +25,9 @@ std::string strx2pstfx(std::string str) {
         if (str[i] >= '0' && str[i] <= '9') {
             output += str[i];
             output += " ";
-        }
-        else if (str[i] == '(') {
+        } else if (str[i] == '(') {
             stack1.push(str[i]);
-        }
-        else if (isDigit(str[i])) {
+        } else if (isDigit(str[i])) {
             while (stack1.isEmpty() == 0 &&
                 getPrior(str[i]) <= getPrior(stack1.getTop())) {
                 output += stack1.getTop();
@@ -37,8 +35,7 @@ std::string strx2pstfx(std::string str) {
                 stack1.pop();
             }
             stack1.push(str[i]);
-        }
-        else if (str[i] == ')') {
+        } else if (str[i] == ')') {
             while (stack1.isEmpty() == 0 && stack1.getTop() != '(') {
                 output += stack1.getTop();
                 output += " ";
