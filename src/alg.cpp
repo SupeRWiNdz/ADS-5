@@ -3,6 +3,10 @@
 #include <map>
 #include "tstack.h"
 
+int getPrior(char);
+std::string infx2pstfx(std::string);
+int eval(std::string);
+
 int getPrior(char c) {
     if (c == '(') return 0;
     if (c == ')') return 1;
