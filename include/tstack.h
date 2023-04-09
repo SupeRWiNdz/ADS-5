@@ -3,9 +3,8 @@
 #define INCLUDE_TSTACK_H_
 #include <string>
 
-class TStack;
-
 template<typename T, int size>
+class TStack;
 class TStack {
  private:
     T arr[100];
