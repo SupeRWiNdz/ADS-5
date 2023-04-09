@@ -54,6 +54,7 @@ std::string infx2pstfx(std::string inf) {
         output += " ";
         stack1.pop();
     }
+    output.erase(output.length()-1);
     return output;
 }
 int eval(std::string post) {
