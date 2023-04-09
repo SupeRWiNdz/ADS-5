@@ -25,9 +25,9 @@ std::string infx2pstfx(std::string inf) {
         if (inf[i] >= '0' && inf[i] <= '9') {
             output += inf[i];
             output += " ";
-        } else if (inf[i] == '(')
+        } else if (inf[i] == '(') {
             stack1.push(inf[i]);
-        else if (isDigit(inf[i])) {
+    } else if (isDigit(inf[i])) {
             while (stack1.isEmpty() == 0 &&
                    getPrior(inf[i]) <= getPrior(stack1.getTop())) {
                 output += stack1.getTop();
@@ -58,8 +58,7 @@ int eval(std::string post) {
             continue;
         if (post[i] >= '0' && post[i] <= '9')
             stack2.push(post[i] - '0');
-        else if (post[i] == '-' || post[i] == '+'
-                 || post[i] == '/' || post[i] == '*') {
+        else if (isDigit(inf[i])) {
             int temp1 = stack2.getTop();
             stack2.pop();
             int temp2 = stack2.getTop();
