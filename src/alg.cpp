@@ -10,7 +10,7 @@ int getPrior(char c) {
     if ((c == '*') || (c == '/')) return 3;
 }
 
-const bool isDigit(char c) {
+const bool isOperation(char c) {
     if (c == '-') return 1;
     if (c == '+') return 1;
     if (c == '/') return 1;
@@ -27,7 +27,7 @@ std::string infx2pstfx(std::string inf) {
             output += " ";
         } else if (inf[i] == '(') {
             stack1.push(inf[i]);
-        } else if (isDigit(inf[i])) {
+        } else if (isOperation(inf[i])) {
             while (stack1.isEmpty() == 0 &&
                 getPrior(inf[i]) <= getPrior(stack1.getTop())) {
                 output += stack1.getTop();
@@ -59,8 +59,7 @@ int eval(std::string post) {
         }
         if (post[i] >= '0' && post[i] <= '9') {
             stack2.push(post[i] - '0');
-        }
-        else if (post[i] == '-' || post[i] == '+' || post[i] == '/' || post[i] == '*') {
+        } else if (isOperation(post[i])) {
             int temp1 = stack2.getTop();
             stack2.pop();
             int temp2 = stack2.getTop();
