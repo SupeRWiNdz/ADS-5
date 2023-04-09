@@ -17,8 +17,7 @@ std::string infx2pstfx(std::string inf) {
         if (inf[i] >= '0' && inf[i] <= '9') {
             output += inf[i];
             output += " ";
-        }
-        else if (inf[i] == '(')
+        } else if (inf[i] == '(')
             stack1.push(inf[i]);
         else if (inf[i] == '-' || inf[i] == '+' || inf[i] == '/' || inf[i] == '*') {
             while (stack1.isEmpty() == 0 &&
@@ -28,9 +27,8 @@ std::string infx2pstfx(std::string inf) {
                 stack1.pop();
             }
             stack1.push(inf[i]);
-        }
-        else if (inf[i] == ')') {
-            while (stack1.isEmpty()==0 && stack1.getTop() != '(') {
+        } else if (inf[i] == ')') {
+            while (stack1.isEmpty() == 0 && stack1.getTop() != '(') {
                 output += stack1.getTop();
                 output += " ";
                 stack1.pop();
