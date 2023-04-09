@@ -6,7 +6,7 @@
 template<typename T, int size>
 class TStack {
  private:
-    T arr[100];
+    T arr[size];
     int top;
 
  public:
@@ -34,6 +34,6 @@ class TStack {
     bool isFull() const {
     return top == size - 1;
     }
-};
+}
 
 #endif  // INCLUDE_TSTACK_H_
