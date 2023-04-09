@@ -56,9 +56,9 @@ int eval(std::string post) {
     for (int i = 0; i < post.length(); i++) {
         if (post[i] == ' ')
             continue;
-        if (post[i] >= '0' && post[i] <= '9')
+        if (post[i] >= '0' && post[i] <= '9') {
             stack2.push(post[i] - '0');
-        else if (isDigit(inf[i])) {
+        } else if (isDigit(inf[i])) {
             int temp1 = stack2.getTop();
             stack2.pop();
             int temp2 = stack2.getTop();
