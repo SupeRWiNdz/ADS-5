@@ -4,8 +4,7 @@
 #include <string>
 
 template<typename T, int size>
-class TStack;
-class TStack {
+class TStack{
  private:
     T arr[100];
     int top;
