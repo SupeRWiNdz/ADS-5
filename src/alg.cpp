@@ -8,6 +8,7 @@ int getPrior(char c) {
     if (c == ')') return 1;
     if ((c == '+') || (c == '-')) return 2;
     if ((c == '*') || (c == '/')) return 3;
+    return -1;
 }
 
 const bool isOperation(char c) {
